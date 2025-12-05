@@ -1,0 +1,82 @@
+/* ===== SECCIÓN SERVICIOS ===== */
+.services-section {
+    padding: 80px 20px;
+    background: #f5f5f5;
+    text-align: center;
+    color: #111;
+}
+
+.services-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.services-section p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: #555;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    width: 280px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0,170,255,0.3);
+}
+
+.service-card .icon {
+    margin-bottom: 20px;
+}
+
+.service-card .icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.service-card h4 {
+    margin-bottom: 15px;
+    color: #002147;
+}
+
+.service-card p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Animación al hacer scroll */
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-container {
+        gap: 20px;
+    }
+    .service-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}

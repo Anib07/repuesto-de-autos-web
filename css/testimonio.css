@@ -1,0 +1,102 @@
+.testimonials-section {
+    background: #111;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #00aaff;
+}
+
+.testimonials-section p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: #ccc;
+}
+
+/* Carrusel flexible */
+.testimonials-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+}
+
+/* Tarjeta testimonial */
+.testimonial-card {
+    flex: 0 0 auto;       /* No se estira, permite scroll */
+    width: 80%;           /* Móvil: ocupa 80% del ancho */
+    max-width: 350px;     /* Limita tamaño máximo */
+    background: rgba(0,0,0,0.7);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00aaff;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.testimonial-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    margin-bottom: 10px;
+    color: #00aaff;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+}
+
+/* Controles */
+.testimonial-controls {
+    margin-top: 20px;
+}
+
+.testimonial-controls button {
+    background: #00aaff;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.testimonial-controls button:hover {
+    background: #0077aa;
+    transform: scale(1.1);
+}
+
+/* Responsivo: Tablets */
+@media (min-width: 768px) {
+    .testimonial-card {
+        width: 45%; /* Dos tarjetas visibles */
+    }
+}
+
+/* Responsivo: Notebooks y desktops */
+@media (min-width: 1024px) {
+    .testimonial-card {
+        width: 30%; /* Tres tarjetas visibles */
+    }
+}
+
+/* Responsivo: pantallas muy grandes */
+@media (min-width: 1440px) {
+    .testimonial-card {
+        width: 22%; /* Cuatro tarjetas visibles */
+    }
+}

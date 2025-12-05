@@ -1,0 +1,475 @@
+/* ===== GENERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+#main-header {
+      background: rgba(0,0,0,0.85); /* más opaco que 0.7 */
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #002147;
+    box-shadow: 0 0 30px #00214733;
+    animation: headerFade 1s ease forwards;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.5s, filter 0.5s;
+    filter: drop-shadow(0 0 5px #fff); /* contorno blanco */
+}
+
+
+.logo img:hover {
+    transform: rotate(15deg) scale(1.2);
+    filter: drop-shadow(0 0 10px #002147);
+}
+
+.logo h1 {
+    color: #000142; /* blanco */
+    font-size: 28px;
+    font-weight: 700;
+    text-shadow: 0 0 5px #002147, 0 0 10px #002147, 0 0 15px #002147; /* resalta sobre fondo oscuro */
+}
+
+/* NAVIGATION */
+/* Oculto por defecto */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    background: rgba(0,0,0,0.95);
+    padding: 20px;
+    border-radius: 12px;
+    z-index: 1000;
+}
+
+.nav-links.active {
+    display: flex;
+    animation: fadeMenu 0.5s ease forwards;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #002147;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #002147;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* MENU HAMBURGUESA */
+.menu-toggle {
+    display: flex; /* siempre visible */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 35px;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes headerFade {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeMenu {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .logo h1 {
+        font-size: 24px;
+    }
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 768px) {
+    #main-header {
+        padding: 15px 20px;
+    }
+    .logo h1 {
+        font-size: 20px;
+    }
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+    .nav-links {
+        top: 70px;
+        right: 15px;
+        gap: 15px;
+    }
+}
+
+/* CONTACT BUTTON (ÍCONO) */
+.contact-btn {
+    position: fixed;
+    top: 100px; /* debajo del header */
+    right: 20px;
+    z-index: 9999;
+}
+
+.contact-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.contact-btn a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+.contact-btn .whatsapp-icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 768px) {
+    .contact-btn {
+        top: auto;
+        bottom: 20px;
+        right: 15px;
+    }
+
+    .contact-btn a {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-btn .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+section {
+    padding: 80px 20px;
+}
+@media (max-width: 768px) {
+    section {
+        padding: 60px 15px;
+    }
+}
+
+/* MENU HAMBURGUESA */
+
+
+/* ===== FOOTER ===== */
+#main-footer {
+    position: relative;
+    background: #000;
+    color: #fff;
+    padding: 60px 20px 20px 20px;
+    overflow: hidden;
+}
+
+.footer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #001733, #002147);
+    opacity: 0.7;
+    z-index: 0;
+    filter: blur(50px);
+    animation: pulse 6s infinite alternate;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section h3, .footer-section h4 {
+    color: #00aaff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #002147;
+}
+
+.footer-section p, .footer-section a {
+    color: #ccc;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section p img, .footer-section a img {
+    width: 22px;
+    height: 22px;
+}
+
+.footer-section a:hover {
+    color: #00aaff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    color: #aaa;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes headerFade {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { filter: blur(40px); }
+    100% { filter: blur(55px); }
+}
+
+@keyframes fadeMenu {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SECCIÓN FAQ ===== */
+.faq-section {
+    padding: 80px 20px;
+    background: #f5f5f5;
+    color: #111;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.faq-section p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: #555;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    border: none;
+    background: #002147;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #001733;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background: #f1f1f1;
+    padding: 0 20px;
+}
+
+.faq-answer p {
+    padding: 15px 0;
+    margin: 0;
+    color: #333;
+}
+
+/* Activa la respuesta cuando la clase open está puesta */
+.faq-item.open .faq-answer {
+    max-height: 200px; /* suficiente para la respuesta */
+    padding: 15px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .faq-section h2 {
+        font-size: 2rem;
+    }
+    .faq-section p {
+        font-size: 1rem;
+    }
+}
+
+
+/* ===== SECCIÓN BLOG / CONSEJOS ===== */
+.blog-section {
+    padding: 80px 20px;
+    background: #f0f2f5;
+    text-align: center;
+    color: #111;
+}
+
+.blog-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #002147;
+}
+
+.blog-section p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: #555;
+}
+
+.blog-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.blog-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-card h4 {
+    margin: 15px 20px 10px;
+    color: #002147;
+}
+
+.blog-card p {
+    margin: 0 20px 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.blog-card .btn-primary {
+    margin: 0 20px 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover efecto */
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0,170,255,0.3);
+}
+
+/* Animación al hacer scroll */
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .blog-cards {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}

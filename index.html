@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repuestos</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/presentacion.css">
+     <link rel="stylesheet" href="css/nosotros.css">
+      <link rel="stylesheet" href="css/productos.css">
+        <link rel="stylesheet" href="css/mapa.css">
+          <link rel="stylesheet" href="css/marcas.css">
+          <link rel="stylesheet" href="css/testimonio.css">
+            <link rel="stylesheet" href="css/servicios.css">
+            <!-- Favicon -->
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2698/2698192.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- LEAFLET CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- LEAFLET JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+  <header id="main-header">
+    <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2698/2698192.png" alt="Repuestos Logo">
+        <h1>Repuestos</h1>
+    </div>
+    <nav class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="#about-us">Nosotros</a>
+    <a href="#products">Productos</a>
+    <a href="#brands">Marcas</a>
+    <a href="#services">Servicios</a>
+    <a href="#testimonials">Testimonios</a>
+    <a href="#location">Ubicación</a>
+    <a href="#faq">Dudas</a>
+    <a href="#blog">Consejos</a>
+    <a href="#main-footer">Contacto</a>
+</nav>
+
+
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+<br>
+  <!-- MAIN CON SECCIÓN DE PRESENTACIÓN -->
+<main>
+    <section class="hero-section">
+        <div class="hero-bg">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=3840&q=80" 
+     alt="Auto Deportivo">
+
+
+            <canvas id="hero-particles"></canvas>
+             <div class="contact-btn">
+            <a href="https://wa.me/595123456789" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="whatsapp-icon">
+            </a>
+        </div>
+        </div>
+        <div class="hero-content">
+            <br>
+            <h1 class="hero-title">Repuestos de calidad premium</h1>
+            <p>Encuentra los mejores repuestos para tu vehículo. Garantía y confianza en cada pieza que vendemos.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">Ver Productos</a>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- SECCIÓN QUIÉNES SOMOS -->
+<!-- SECCIÓN QUIÉNES SOMOS -->
+<section id="about-us" class="about-section">
+    <div class="about-container">
+        <!-- Imagen -->
+        <div class="about-image">
+        </div>
+
+        <!-- Contenido -->
+        <div class="about-content">
+            <h2>Quiénes Somos</h2>
+            <p>
+                En <strong>Repuestos Premium</strong> nos dedicamos a ofrecer piezas de alta calidad para todo tipo de vehículos. Nuestro equipo profesional garantiza que cada producto cumpla con los más altos estándares.
+            </p>
+            <p>
+                Nuestra misión es brindar confianza y seguridad en cada compra, asegurando que tu vehículo siempre esté en las mejores manos.
+            </p>
+
+            <!-- Valores -->
+            <div class="about-values">
+                <div class="value">
+                    <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Calidad"></div>
+                    <h4>Calidad</h4>
+                    <p>Piezas certificadas y confiables para tu vehículo.</p>
+                </div>
+                <div class="value">
+                    <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/2910/2910762.png" alt="Confianza"></div>
+                    <h4>Confianza</h4>
+                    <p>Atención profesional y cercana a cada cliente.</p>
+                </div>
+                <div class="value">
+                    <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/2838/2838895.png" alt="Garantía"></div>
+                    <h4>Garantía</h4>
+                    <p>Respaldo y seguridad en cada compra realizada.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN DE PRODUCTOS -->
+<section id="products" class="products-section">
+    <div class="products-header">
+        <h2>Nuestros Productos</h2>
+   
+
+
+        <!-- Filtros -->
+        <div class="product-filters">
+            <select id="category-filter">
+                <option value="all">Todas las categorías</option>
+                <option value="ruedas">Ruedas</option>
+                <option value="volantes">Volantes</option>
+                <option value="radios">Radios</option>
+                <option value="otros">Otros</option>
+            </select>
+            <select id="price-filter">
+                <option value="asc">Precio: Menor a Mayor</option>
+                <option value="desc">Precio: Mayor a Menor</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Productos -->
+    <div class="products-container">
+        <!-- Producto 1 -->
+        <div class="product-card" data-category="ruedas" data-price="150">
+            <img src="https://images.unsplash.com/photo-1639519645948-6c6bd334155a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJ1ZWRhJTIwZGVwb3J0aXZhfGVufDB8fDB8fHww" alt="Rueda deportiva">
+            <h4>Rueda Deportiva</h4>
+            <p>$150</p>
+            <p>Rueda de alto rendimiento para autos deportivos.</p>
+            <a href="https://wa.me/595123456789?text=Hola%2C%20quiero%20consultar%20por%20la%20Rueda%20Deportiva" target="_blank" class="btn-consult">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> Consultar
+            </a>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-card" data-category="volantes" data-price="80">
+            <img src="https://images.unsplash.com/photo-1686783578965-64d2025cd2c1?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Volante deportivo">
+            <h4>Volante Deportivo</h4>
+            <p>$80</p>
+            <p>Volante ergonómico con excelente agarre y estilo.</p>
+            <a href="https://wa.me/595123456789?text=Hola%2C%20quiero%20consultar%20por%20el%20Volante%20Deportivo" target="_blank" class="btn-consult">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> Consultar
+            </a>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card" data-category="radios" data-price="120">
+            <img src="https://images.unsplash.com/photo-1631035012469-751baca1d4a0?q=80&w=1034&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Radio para auto">
+            <h4>Radio Auto</h4>
+            <p>$120</p>
+            <p>Radio multimedia con Bluetooth y pantalla táctil.</p>
+            <a href="https://wa.me/595123456789?text=Hola%2C%20quiero%20consultar%20por%20el%20Radio%20Auto" target="_blank" class="btn-consult">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> Consultar
+            </a>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-card" data-category="ruedas" data-price="200">
+            <img src="https://plus.unsplash.com/premium_photo-1679826780160-b6376c899fe5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cnVlZGF8ZW58MHx8MHx8fDA%3D" alt="Rueda todoterreno">
+            <h4>Rueda Todoterreno</h4>
+            <p>$200</p>
+            <p>Rueda resistente para condiciones extremas.</p>
+            <a href="https://wa.me/595123456789?text=Hola%2C%20quiero%20consultar%20por%20la%20Rueda%20Todoterreno" target="_blank" class="btn-consult">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> Consultar
+            </a>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="product-card" data-category="otros" data-price="50">
+            <img src="https://images.unsplash.com/photo-1744532850573-dc2a49ec7eaf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGFsZm9tYnJhcyUyMGRlJTIwYXV0b3xlbnwwfHwwfHx8MA%3D%3D" alt="Accesorio auto">
+            <h4>Alfomfras para auto</h4>
+            <p>$50</p>
+            <p>funcional para tu vehículo.</p>
+            <a href="https://wa.me/595123456789?text=Hola%2C%20quiero%20consultar%20por%20el%20Accesorio%20Universal" target="_blank" class="btn-consult">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> Consultar
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- SECCIÓN DE MARCAS -->
+<section id="brands" class="brands-section">
+    <div class="container">
+        <h2>Nuestras Marcas</h2>
+        <p>Trabajamos con las marcas más confiables del mercado automotriz.</p>
+        <div class="brands-carousel">
+            <div class="carousel-track">
+                <div class="brand"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Toyota_Logo.svg" alt="Toyota"></div>
+                <div class="brand"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Ford-Motor-Company-Logo.png" alt="Ford"></div>
+                <div class="brand"><img src="https://assets.stickpng.com/images/580b585b2edbce24c47b2c73.png" alt="Honda"></div>
+                <div class="brand"><img src="https://cdn.freebiesupply.com/logos/large/2x/nissan-6-logo-png-transparent.png" alt="Nissan"></div>
+                <div class="brand"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Mitsubishi_logo.svg" alt="Mitsubishi"></div>
+                <!-- Repetimos los logos para crear efecto infinito -->
+                <div class="brand"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Toyota_Logo.svg" alt="Toyota"></div>
+                <div class="brand"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Ford-Motor-Company-Logo.png" alt="Ford"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<!-- SECCIÓN DE SERVICIOS -->
+<section id="services" class="services-section">
+    <div class="container">
+        <h2>Nuestros Servicios</h2>
+        <p>Brindamos soluciones completas para el cuidado de tu vehículo.</p>
+
+        <div class="services-container">
+            <div class="service-card animate">
+                <div class="icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Instalación">
+                </div>
+                <h4>Instalación de Repuestos</h4>
+                <p>Expertos en instalación rápida y segura de todos nuestros productos.</p>
+            </div>
+            <div class="service-card animate">
+                <div class="icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1041/1041884.png" alt="Envíos">
+                </div>
+                <h4>Envíos Rápidos</h4>
+                <p>Recibe tus repuestos en tiempo récord, en cualquier lugar del país.</p>
+            </div>
+            <div class="service-card animate">
+                <div class="icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1041/1041887.png" alt="Garantía">
+                </div>
+                <h4>Garantía y Devoluciones</h4>
+                <p>Productos con garantía, y devoluciones fáciles si algo no cumple tus expectativas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- SECCIÓN DE TESTIMONIOS -->
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <p>Opiniones reales que reflejan la calidad y confianza de nuestros productos.</p>
+
+        <div class="testimonials-carousel">
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 1">
+                <h4>Juan Pérez</h4>
+                <p>"Excelente atención y los repuestos llegaron en perfectas condiciones. ¡Recomendados!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 2">
+                <h4>María López</h4>
+                <p>"Gran variedad de piezas y precios justos. Encontré exactamente lo que necesitaba."</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Cliente 3">
+                <h4>Carlos Fernández</h4>
+                <p>"Servicio rápido y confiable. Mi coche quedó como nuevo gracias a sus repuestos."</p>
+            </div>
+        </div>
+<div class="testimonial-form">
+    <h3>Deja tu testimonio</h3><br>
+    <input type="text" id="name" placeholder="Tu nombre" required><br>
+    <br><textarea id="comment" placeholder="Escribe tu comentario" required></textarea>
+   <br> <button onclick="addTestimonial()">Enviar</button>
+</div>
+
+        <!-- Controles del carrusel -->
+        <div class="testimonial-controls">
+            <button id="prev-testimonial">&#10094;</button>
+            <button id="next-testimonial">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<!-- SECCIÓN DE UBICACIÓN -->
+<section id="location" class="location-section">
+    <div class="location-overlay">
+        <div class="location-content">
+            <h2>Encuéntranos Aquí</h2>
+            <p>Visita nuestra tienda física y descubre los mejores repuestos para tu vehículo.</p>
+            <div class="location-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Ubicación">
+                <p>Calle Principal #123, Ciudad, País</p>
+                <a href="https://wa.me/595123456789" target="_blank" class="btn-primary">Contáctanos</a>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+</section>
+
+<br>
+<br>
+<!-- SECCIÓN FAQ -->
+<section id="faq" class="faq-section">
+    <div class="container">
+        <h2>Preguntas Frecuentes</h2>
+        <p>Resolvemos las dudas más comunes de nuestros clientes.</p>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">¿Hacen envíos a todo el país?</button>
+                <div class="faq-answer">
+                    <p>Sí, realizamos envíos a cualquier ciudad del país. Los costos y tiempos dependen de la ubicación.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">¿Aceptan devoluciones?</button>
+                <div class="faq-answer">
+                    <p>Sí, aceptamos devoluciones dentro de los 7 días posteriores a la compra, siempre que el producto esté en perfecto estado.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">¿Qué garantía tienen los productos?</button>
+                <div class="faq-answer">
+                    <p>Todos nuestros productos cuentan con garantía de 6 meses contra defectos de fábrica. Reemplazo o devolución según corresponda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+
+<!-- SECCIÓN DE BLOG / CONSEJOS -->
+<section id="blog" class="blog-section">
+    <div class="container">
+        <h2>Consejos y Tips para tu Auto</h2>
+        <p>Aprende a cuidar tu vehículo con nuestras guías y recomendaciones.</p>
+
+        <div class="blog-cards">
+            <div class="blog-card animate">
+                <img src="https://plus.unsplash.com/premium_photo-1682147567073-640d717c6377?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJ1ZWRhcyUyMGRlJTIwYXV0b3xlbnwwfHwwfHx8MA%3D%3D" alt="Ruedas">
+                <h4>Cómo elegir las mejores ruedas</h4>
+                <p>Descubre los tipos de ruedas, materiales y recomendaciones según tu vehículo.</p>
+                <a href="https://rnrtires.com/tips-guides/tips-to-properly-clean-and-maintain-your-wheels/" class="btn-primary" target="_blank">Leer más</a>
+
+            </div>
+            <div class="blog-card animate">
+                <img src="https://plus.unsplash.com/premium_photo-1682147573118-1343a4544822?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWFudGVuaW1pZW50byUyMGRlJTIwYXV0b3xlbnwwfHwwfHx8MA%3D%3D" alt="Frenos">
+                <h4>Mantenimiento de frenos y suspensión</h4>
+                <p>Aprende cuándo y cómo revisar frenos y suspensión para garantizar seguridad.</p>
+               <a href="https://rnrtires.com/tips-guides/tips-to-properly-clean-and-maintain-your-wheels/" class="btn-primary" target="_blank">Leer más</a>
+
+            </div>
+            <div class="blog-card animate">
+                <img src="https://plus.unsplash.com/premium_photo-1661411119301-8cae0adce9a7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Motor">
+                <h4>Tips para el motor de tu auto</h4>
+                <p>Conoce los hábitos y cuidados que prolongan la vida útil del motor.</p>
+                <a href="https://rnrtires.com/tips-guides/tips-to-properly-clean-and-maintain-your-wheels/" class="btn-primary">Leer más</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</main>
+
+
+
+
+    <!-- FOOTER -->
+    <footer id="main-footer">
+        <div class="footer-bg"></div>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Repuestos</h3>
+                <p>La mejor calidad en repuestos de vehículos.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/483/483947.png" alt="Teléfono"> +595 123 456 789</p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Correo"> info@repuestos.com</p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Ubicación"> Calle Principal #123, Ciudad, País</p>
+            </div>
+            <div class="footer-section">
+                <h4>Horario</h4>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/61/61112.png" alt="Horario"> Lunes - Viernes: 08:00 - 18:00</p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/61/61112.png" alt="Horario"> Sábado: 09:00 - 14:00</p>
+            </div>
+            <div class="footer-section social">
+                <h4>Síguenos</h4>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Repuestos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+   
+    <script src="js/index.js"></script>
+     <script src="js/productos.js"></script>
+         <script src="js/testimonio.js"></script>
+</body>
+</html>
